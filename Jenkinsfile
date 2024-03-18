@@ -42,7 +42,7 @@ pipeline {
         stage('checkout') {
             steps {
                 script {
-                    git "https://github.com/iamzakibb/AWSLambdaRds2.git"
+                    git branch: 'main', url: 'https://github.com/iamzakibb/AWSLambdaRds2.git'
                 }
             }
         }
