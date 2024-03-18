@@ -6,6 +6,7 @@ def installTerraform() {
         sh '''
             echo "Installing Terraform..."
             wget https://releases.hashicorp.com/terraform/1.0.11/terraform_1.0.11_linux_amd64.zip
+            sudo rm -rf terraform    // Remove existing terraform directory
             unzip -o terraform_1.0.11_linux_amd64.zip
             sudo mv terraform /usr/local/bin/
             rm -f terraform_1.0.11_linux_amd64.zip
