@@ -5,10 +5,10 @@ def installTerraform() {
         // Install terraform
         sh '''
             echo "Installing Terraform..."
-            wget https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
-            unzip terraform_1.0.0_linux_amd64.zip
+            wget https://releases.hashicorp.com/terraform/1.0.11/terraform_1.0.11_linux_amd64.zip
+            unzip terraform_1.0.11_linux_amd64.zip
             sudo mv terraform /usr/local/bin/
-            rm -f terraform_1.0.0_linux_amd64.zip
+            rm -f terraform_1.0.11_linux_amd64.zip
         '''
     } else {
         echo "Terraform already installed!"
@@ -17,25 +17,14 @@ def installTerraform() {
 
 pipeline {
 
-    parameters {
-        string(name: 'environment', defaultValue: 'terraform', description: 'Workspace/environment file to use for deployment')
-        booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
-
-    }
-
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    }
-
     agent any
 
     stages {
         stage('Initial') {
             steps {
-                sh '''
-                   echo "Hey"
-                '''
+                script {
+                    installTerraform()
+                }
             }
         }
 
