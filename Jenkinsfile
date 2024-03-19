@@ -26,11 +26,11 @@ pipeline {
 
         stage('Plan') {
             steps {
-                sh 'pwd;cd terraform/aws-instance-first-script ; terraform init -input=false'
-                sh 'pwd;cd terraform/aws-instance-first-script ; terraform workspace new ${environment}'
-                sh 'pwd;cd terraform/aws-instance-first-script ; terraform workspace select ${environment}'
-                sh "pwd;cd terraform/aws-instance-first-script ;terraform plan -input=false -out tfplan "
-                sh 'pwd;cd terraform/aws-instance-first-script ;terraform show -no-color tfplan > tfplan.txt'
+                sh 'pwd; terraform init -input=false'
+                sh 'pwd; terraform workspace new ${environment}'
+                sh 'pwd; terraform workspace select ${environment}'
+                sh "pwd; terraform plan -input=false -out tfplan "
+                sh 'pwd; terraform show -no-color tfplan > tfplan.txt'
             }
         }
 
