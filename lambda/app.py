@@ -8,7 +8,7 @@ import json
 rds_host, rds_port = os.environ['rds_endpoint'].split(":")
 db_user = os.environ['db_username']
 db_password = os.environ['db_password']
-db_name = "DBLAMBDAMETRICS"
+db_name = "DBLAMBDAMETRICS2"
 
 # Logger configuration
 logger = logging.getLogger()
