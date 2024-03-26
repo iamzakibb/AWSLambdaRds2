@@ -9,7 +9,7 @@
 #   engine               =     "mysql"
 #   engine_version       =     "5.7"
 #   instance_class       =     "db.t3.micro"
-#   db_name                   = "DBLAMBDAMETRICS"
+#   db_name                   = "DBLAMBDAMETRICS2"
 #   username                  = var.db_username
 #   password                  = var.db_password
 #   # final_snapshot_identifier = "someid"
